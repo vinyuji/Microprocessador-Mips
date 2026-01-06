@@ -1,2 +1,3 @@
 # Microprocessador-Mips
-It's a project to study, part of my graduation.
+
+This project was developed for study purposes. It documents the step-by-step process of building a MIPS microprocessor.
