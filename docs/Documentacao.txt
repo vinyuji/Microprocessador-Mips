@@ -1,0 +1,6 @@
+Para rodar --> 
+
+primeiro é preciso que torne o hardware funcional, com isso tem o comando 
+
+#iverilog -o NomeDoDocumentoQueVaiGerar caminhoDoArquivo.v
+#vvp NomeDoDocumentoGerado
