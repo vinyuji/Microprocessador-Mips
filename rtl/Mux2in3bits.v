@@ -5,7 +5,6 @@ module Mux2in3bits(
     output wire [2:0]r
 );
 
-
 assign r = select ? a : b;
 
 endmodule
