@@ -6,26 +6,24 @@ module Ula (
     output wire Cout
 );
 
-    // fio para receber resultado do somador/subtrator
-    wire [15:0] soma_sub;
+    wire [15:0] somaSub;
     wire sub;
 
-    // select 000 = soma | 001 = sub
+
     assign sub = (select == 3'b001);
 
-    // instância do somador/subtrator
     SomadorSubtrator somador (
         .a(a),
         .b(b),
         .sub(sub),
-        .s(soma_sub),
+        .s(somaSub),
         .Cout(Cout)
     );
 
     always @(*) begin
         case (select)
-            3'b000: aluResult = soma_sub;        // Soma
-            3'b001: aluResult = soma_sub;        // Subtração
+            3'b000: aluResult = somaSub;        // Soma
+            3'b001: aluResult = somaSub;        // Subtração
             3'b010: aluResult = a & b;           // AND
             3'b011: aluResult = a | b;           // OR
             3'b100: aluResult = ~(a & b);        // NAND
