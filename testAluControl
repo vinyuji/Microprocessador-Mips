@@ -1,0 +1,60 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x56ded1bcf4c0 .scope module, "testAluControl" "testAluControl" 2 1;
+ .timescale 0 0;
+v0x56ded1c1b770_0 .var "AluOp", 3 0;
+v0x56ded1c1b830_0 .net "S", 2 0, L_0x56ded1c1bbc0;  1 drivers
+v0x56ded1c1b900_0 .var "funct", 2 0;
+S_0x56ded1bcf650 .scope module, "dut" "aluControl" 2 7, 3 1 0, S_0x56ded1bcf4c0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 3 "funct";
+    .port_info 1 /INPUT 4 "AluOp";
+    .port_info 2 /OUTPUT 3 "S";
+v0x56ded1c09fc0_0 .net "AluOp", 3 0, v0x56ded1c1b770_0;  1 drivers
+v0x56ded1c1b340_0 .net "S", 2 0, L_0x56ded1c1bbc0;  alias, 1 drivers
+v0x56ded1c1b420_0 .net *"_ivl_1", 0 0, L_0x56ded1c1ba00;  1 drivers
+v0x56ded1c1b4e0_0 .net *"_ivl_3", 2 0, L_0x56ded1c1bb20;  1 drivers
+v0x56ded1c1b5c0_0 .net "funct", 2 0, v0x56ded1c1b900_0;  1 drivers
+L_0x56ded1c1ba00 .part v0x56ded1c1b770_0, 3, 1;
+L_0x56ded1c1bb20 .part v0x56ded1c1b770_0, 0, 3;
+L_0x56ded1c1bbc0 .functor MUXZ 3, v0x56ded1c1b900_0, L_0x56ded1c1bb20, L_0x56ded1c1ba00, C4<>;
+    .scope S_0x56ded1bcf4c0;
+T_0 ;
+    %vpi_call 2 14 "$display", "AluOp    funct   -> S" {0 0 0};
+    %vpi_call 2 15 "$monitor", "%b   %b   -> %b", v0x56ded1c1b770_0, v0x56ded1c1b900_0, v0x56ded1c1b830_0 {0 0 0};
+    %pushi/vec4 2, 0, 3;
+    %store/vec4 v0x56ded1c1b900_0, 0, 3;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v0x56ded1c1b770_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 5, 0, 3;
+    %store/vec4 v0x56ded1c1b900_0, 0, 3;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x56ded1c1b770_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 7, 0, 3;
+    %store/vec4 v0x56ded1c1b900_0, 0, 3;
+    %pushi/vec4 9, 0, 4;
+    %store/vec4 v0x56ded1c1b770_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 3;
+    %store/vec4 v0x56ded1c1b900_0, 0, 3;
+    %pushi/vec4 14, 0, 4;
+    %store/vec4 v0x56ded1c1b770_0, 0, 4;
+    %delay 10, 0;
+    %vpi_call 2 35 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "sim/testAluControl.v";
+    "rtl/aluControl.v";
