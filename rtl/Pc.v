@@ -19,13 +19,13 @@ module Pc (
     assign pcMais1 = pc + 6'd1;
 
     // Branch destino
-    assign branchTrue = pcMais1 + imm_branch;
+    assign branchTrue = pcMais1 + immBranch;
 
     // Decide branch
     assign pcAfterBranch = (branch & zero) ? branchTrue : pcMais1;
 
     // Jump tem prioridade maior
-    assign nextPc = jump ? jump_addr : pcAfterBranch;
+    assign nextPc = jump ? jumpAddr : pcAfterBranch;
 
     // Registrador do PC
     always @(posedge clk or posedge reset) begin
